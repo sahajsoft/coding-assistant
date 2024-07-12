@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "coding-assistant"
+version = "0.1.0"
+description = ""
+authors = ["mallikarjun-br <93917885+mallikarjun-br@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+llama-index-llms-ollama = "^0.1.5"
+llama-index = "^0.10.53"
+llama-index-embeddings-huggingface = "^0.1.1"
+jupyter = "^1.0.0"
+python-git = "^2018.2.1"
+gitpython = "^3.1.43"
+weaviate-client = "^4.6.5"
+ollama = "^0.2.1"
+sentence-transformers = "=2.2.2"
+chardet = "^5.2.0"
+instructorembedding = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
