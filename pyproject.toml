@@ -22,8 +22,14 @@ torch = "2.2.2"
 aider-chat = "^0.50.1"
 pygments = "^2.18.0"
 pathspec = "^0.12.1"
-
+pytest = "^8.3.2"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpath = "src"
+addopts = [
+    "--import-mode=importlib",
+]
