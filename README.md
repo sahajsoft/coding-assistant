@@ -19,6 +19,10 @@ poetry run python src/cli.py --repo-path . repomap # print out current repo map
 poetry run python src/cli.py --repo-path . summary # summarise current repo
 ```
 
+## Contributing
+
+The recommendation would be to familiarise yourself with the structure of the repo and if you are working on a new feature create a separate module for it and integrate in to the `cli.py` at the least so it is usable. Also make sure any relevant tests get added to the `tests` folder. To run all tests simply run `poetry run pytest`.
+
 ## Troubleshooting
 
 There is a chance that `direnv allow` will not load the environment correctly and silently fail. This is observable when you attempt to run `poetry install`, as you will get a `command not found` error in the shell.
