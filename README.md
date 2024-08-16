@@ -4,7 +4,7 @@
 
 Run `./setup.sh` to install all dependencies. This will install [direnv](https://github.com/direnv/direnv/blob/master/docs/installation.md) and [nix](https://nixos.org/download.html) then simply run `direnv allow` to install all build dependencies.
 
-Alternatively, make sure you have [python 3.11](https://www.python.org/downloads/) and [poetry](https://python-poetry.org/docs/#installation) setup on your machine.
+Alternatively, make sure you have [python 3.11](https://www.python.org/downloads/), [poetry](https://python-poetry.org/docs/#installation) and [ollama](https://ollama.com/download) setup on your machine.
 
 ## Getting started
 
@@ -12,8 +12,10 @@ To get started, run the following:
 
 ```
 poetry install --no-root
-docker run -d -p 8080:8080 -p 50051:50051 cr.weaviate.io/semitechnologies/weaviate
-poetry run jupyter notebook
+ollama serve &
+ollama pull llama3.1:8b
+poetry run python src/main.py -h
+poetry run python src/main.py --repo-path . repomap
 ```
 
 ## Troubleshooting
