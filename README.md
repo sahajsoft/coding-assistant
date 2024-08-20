@@ -25,3 +25,9 @@ To fix this, you need to run the nix commands directly. Run the following:
 nix --extra-experimental-features 'nix-command flakes' develop
 ```
 This command will create a new Shell instance which has the Nix dependencies loaded. You will need to run commands through this prompt.
+
+## Useful Links
+
+https://mistral.ai/news/codestral-mamba/ Codestral mamba
+https://docs.sweep.dev/blogs/chunking-2m-files Ollama CodeSplitter
+https://www.codium.ai/blog/rag-for-large-scale-code-repos/ RAG for large-scale code-repos
