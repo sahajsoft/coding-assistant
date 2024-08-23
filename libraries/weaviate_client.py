@@ -16,12 +16,17 @@ def create_client_collection(collection_name: str = "test"):
 def apply_embeddings(embedding_function: callable, embedding_model: str, nodes: list[str]):
     embeddings = []
 
+    prev_message = ""
+
     for i, value in enumerate(nodes):
+        res = embedding_function(value, embedding_model)
+        if res is None:
+            continue
         embedding_i = wvc.data.DataObject(
             properties={
                 'message': value,
             },
-            vector=list(embedding_function(value, embedding_model))
+            vector=list(res)
         )
         embeddings.append(embedding_i)
         # Print the loading percentage
