@@ -1,7 +1,6 @@
 import argparse
 
 from ask_repo import AskRepo
-from chat import Chat
 
 
 def generate_summary(args):
@@ -15,8 +14,8 @@ def generate_repo_map(args):
 
 
 def start_chat(args):
-    chat_repo = Chat(args.repo_path, args.model_name)
-    chat_repo.chat()
+    ask_repo = AskRepo(args.repo_path, args.model_name)
+    ask_repo.chat()
 
 
 def main():
