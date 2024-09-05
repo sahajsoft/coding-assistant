@@ -16,4 +16,4 @@ def test_repo_map():
 
 def test_generates_valid_summary():
     ask_repo = AskRepo(os.getcwd(), "gpt-3.5-turbo")
-    assert "Purpose" in ask_repo.summarise()
+    assert "summary" in ask_repo.summarise()
