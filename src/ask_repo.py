@@ -21,8 +21,7 @@ class AskRepo:
         return summary
 
     def chat(self):
-        while True:
-            self.coder.run()
+        self.coder.run()
 
 # ask_repo = AskRepo("/home/akshaykarle/src/github.com/sahajsoft/pii-detection-and-anonymizer")
 # print(ask_repo.get_repo_map())
