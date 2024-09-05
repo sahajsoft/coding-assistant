@@ -15,15 +15,16 @@ jupyter = "^1.0.0"
 python-git = "^2018.2.1"
 gitpython = "^3.1.43"
 weaviate-client = "^4.6.5"
-ollama = "^0.2.1"
 sentence-transformers = "=2.2.2"
 chardet = "^5.2.0"
 instructorembedding = "^1.0.1"
 torch = "2.2.2"
-aider-chat = "^0.50.1"
 pygments = "^2.18.0"
 pathspec = "^0.12.1"
+# needed for src/*
 pytest = "^8.3.2"
+ollama = "^0.2.1"
+aider-chat = "^0.50.1"
 
 [build-system]
 requires = ["poetry-core"]
