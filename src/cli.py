@@ -1,6 +1,7 @@
 import argparse
 
 from ask_repo import AskRepo
+from chat import Chat
 
 
 def generate_summary(args):
@@ -11,6 +12,11 @@ def generate_summary(args):
 def generate_repo_map(args):
     ask_repo = AskRepo(args.repo_path, args.model_name)
     print(ask_repo.get_repo_map())
+
+
+def start_chat(args):
+    chat_repo = Chat(args.repo_path, args.model_name)
+    chat_repo.chat()
 
 
 def main():
@@ -24,6 +30,9 @@ def main():
 
     summary_parser = subparsers.add_parser("repomap", description="Generate summary of a local git repository.")
     summary_parser.set_defaults(func=generate_repo_map)
+
+    chat_parser = subparsers.add_parser("chat", description="Start a Chat with the assistant to help with local git repository.")
+    chat_parser.set_defaults(func=start_chat)
 
     args = parser.parse_args()
     args.func(args)
