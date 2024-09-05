@@ -20,8 +20,8 @@ def start_chat(args):
 
 def main():
     parser = argparse.ArgumentParser(description="A CLI for interacting with the coding assistant.")
-    parser.add_argument("--repo-path", required=True, type=str, metavar="FILE")
-    parser.add_argument("--model-name", required=False, type=str, default="ollama/llama3.1:8b")
+    parser.add_argument("--repo-path", required=True, type=str, metavar="FILE", help="path to a git repository to work on.")
+    parser.add_argument("--model-name", required=False, type=str, default="ollama/llama3.1:8b", help="name of the model to use.")
     subparsers = parser.add_subparsers(required=True)
 
     summary_parser = subparsers.add_parser("summary", description="Generate summary of a local git repository.")

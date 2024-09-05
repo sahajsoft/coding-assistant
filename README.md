@@ -15,6 +15,7 @@ poetry install --no-root
 ollama serve &
 ollama pull llama3.1:8b
 poetry run python src/main.py -h
+poetry run python src/cli.py --help # show the usage of the cli
 poetry run python src/cli.py --repo-path . repomap # print out current repo map
 poetry run python src/cli.py --repo-path . summary # summarise current repo
 ```
