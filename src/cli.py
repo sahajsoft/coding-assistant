@@ -27,7 +27,7 @@ def main():
     summary_parser = subparsers.add_parser("summary", description="Generate summary of a local git repository.")
     summary_parser.set_defaults(func=generate_summary)
 
-    summary_parser = subparsers.add_parser("repomap", description="Generate summary of a local git repository.")
+    summary_parser = subparsers.add_parser("repomap", description="Generate a map of a local git repository with it's main modules and functions.")
     summary_parser.set_defaults(func=generate_repo_map)
 
     chat_parser = subparsers.add_parser("chat", description="Start a Chat with the assistant to help with local git repository.")
