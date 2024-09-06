@@ -12,7 +12,7 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         nativeBuildInputs = with pkgs; [ stdenv python3 python312Packages.setuptools poetry tesseract nodejs_22 ];
-        buildInputs = with pkgs; [ ollama bun hello ];
+        buildInputs = with pkgs; [ ollama bun little_boxes];
 
         # see https://github.com/nix-community/poetry2nix/tree/master#api for more functions and examples.
         pkgs = nixpkgs.legacyPackages.${system};
