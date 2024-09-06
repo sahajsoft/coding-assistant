@@ -11,32 +11,22 @@
   outputs = { self, nixpkgs, flake-utils, poetry2nix }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        nativeBuildInputs = with pkgs; [ stdenv python3 poetry tesseract nodejs_22 ];
-        buildInputs = with pkgs; [ ollama bun ];
+        nativeBuildInputs = with pkgs; [ stdenv python3 python312Packages.setuptools poetry tesseract nodejs_22 ];
+        buildInputs = with pkgs; [ ollama bun hello ];
 
         # see https://github.com/nix-community/poetry2nix/tree/master#api for more functions and examples.
         pkgs = nixpkgs.legacyPackages.${system};
         inherit (poetry2nix.lib.mkPoetry2Nix { inherit pkgs; })
-          mkPoetryApplication;
-      in {
-        inherit nativeBuildInputs buildInputs;
-
-        packages = {
-          myapp = mkPoetryApplication {
-            projectDir = self;
-            python = pkgs.python3;
-          };
-          default = self.packages.${system}.myapp;
-        };
-
-        devShells = {
-          default = pkgs.mkShell {
+          mkPoetryApplication defaultPoetryOverrides;
+        default = pkgs.mkShell {
             packages = nativeBuildInputs ++ buildInputs;
             LD_LIBRARY_PATH = if pkgs.stdenv.isLinux then
               "${pkgs.stdenv.cc.cc.lib}/lib:/run/opengl-driver/lib:/run/opengl-driver-32/lib"
             else
               "$LD_LIBRARY_PATH";
           };
-        };
+      in {
+          devShells.default = default;
+          packages.default = default;
       });
 }
