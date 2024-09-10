@@ -7,11 +7,13 @@ bun-ny tool to catch bugs, hence the name (Bugs Bunny, anyone?).
 
 ### Installation
 
-You should be able to install `bugs` using `npm`, or related
-package managers.
+You need [bun](https://bun.sh) to run `bugs` at this time. Clone this repo, and
+then run at repo root:
 
 ```sh
-npm install -g bugs
+cd bugs
+bun link
+bun link @artfuldev/bugs
 ```
 
 ### Usage
@@ -20,14 +22,21 @@ We can use bugs in 2 ways:
 
 #### To collect suggestions for tests based on code
 
+We use `bugs extract` which reads a `git diff` from `stdin` and outputs
+extracted code and tests related to it via `stdout`.
+
 ```sh
-bugs suggest -c code
+git diff main..pr-71 | bugs extract
 ```
 
 #### To review existing tests for a piece of code
 
+We use `bugs review` with a diff directly via `stdin` and outputs recommendations
+via `stdout`.
+
 ```sh
-bugs review -c code - tests
+git diff main..pr-71 | bugs review
+git diff main..pr-71 | bugs extract | bugs review
 ```
 
 ### Building
