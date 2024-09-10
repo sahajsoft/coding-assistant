@@ -3,8 +3,7 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import { extract, review } from "./commands";
 
-// Fix process name in commands
-process.argv = process.argv.map((x, i) => (i === 0 ? "bugs" : x));
+process.argv = ["bugs", ""].concat(process.argv.slice(2));
 
 yargs(hideBin(process.argv))
   .option("verbose", {
