@@ -25,4 +25,4 @@ class TestAskRepo:
 
     def test_generates_valid_summary(self, model_name):
         ask_repo = AskRepo(os.getcwd(), model_name)
-        assert "summary" in ask_repo.summarise()
+        assert "AskRepo" in ask_repo.summarise()
