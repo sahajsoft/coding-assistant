@@ -1,7 +1,7 @@
 import type { CommandModule } from "yargs";
 import { lines } from "../rl";
 
-export const review: CommandModule = {
+export const review: CommandModule<{ verbose?: boolean }, { verbose: boolean }> = {
   command: "review",
   describe: "review relevant tests based on the code",
   handler: async (args) => {
